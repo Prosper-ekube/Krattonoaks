@@ -1,34 +1,24 @@
-# dependencies
-node_modules/
-
-# production build
-dist/
-build/
-
-# env files
-.env
-.env.local
-.env.development
-.env.test
-.env.production
-
-# logs
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# OS files
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
-
-# IDE files
-.vscode/
-.idea/
-
-# coverage / testing
-coverage/
-
-# optional lock cleanup (DON'T ignore if you use npm/yarn properly)
-# package-lock.json
-# yarn.lock
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
