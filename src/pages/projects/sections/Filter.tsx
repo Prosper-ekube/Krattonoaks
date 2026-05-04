@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 type FilterButtonProps = {
     active: boolean
     label: string

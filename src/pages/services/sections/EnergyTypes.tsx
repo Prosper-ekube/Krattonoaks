@@ -1,11 +1,12 @@
-type EnergyTypeProps = {
+type EnergyType = {
     description: string
     percentage: number
     title: string
+    imageUrl: string
 }
 
 const EnergyTypes = () => {
-    const energyTypes = [
+    const energyTypes: EnergyType[] = [
         {
             title: 'Solar Energy',
             percentage: 88,
@@ -21,7 +22,7 @@ const EnergyTypes = () => {
         {
             title: 'Geothermal Energy',
             percentage: 74,
-            description: 'Tap into the earth\'s natural heat for consistent, reliable energy.',
+            description: "Tap into the earth's natural heat for consistent, reliable energy.",
             imageUrl: 'src/assets/images/geothermal.jpg'
         }
     ]
@@ -57,7 +58,9 @@ const EnergyTypes = () => {
                                         style={{ width: `${type.percentage}%` }}
                                     />
                                 </div>
-                                <p className='font-light mt-3 text-gray-600 text-sm'>{type.description}</p>
+                                <p className='font-light mt-3 text-gray-600 text-sm'>
+                                    {type.description}
+                                </p>
                             </div>
                         </div>
                     ))}
