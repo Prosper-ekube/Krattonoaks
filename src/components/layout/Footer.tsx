@@ -96,18 +96,10 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className='border-t border-gray-800 flex flex-col gap-4 mt-8 pt-8 pb-8 sm:flex-row sm:items-center sm:justify-between'>
+                <div className='border-t border-gray-800 gap-4 mt-8 pt-8 pb-8'>
                     <p className='font-light order-2 sm:order-1 text-gray-500 text-center text-sm'>
                         © {currentYear} KrattonOaks. All rights reserved.
                     </p>
-                    <div className='flex flex-wrap gap-4 justify-center order-1 sm:order-2'>
-                        <span className='duration-300 font-light text-gray-500 text-sm transition-colors hover:text-[#008900]'>
-                            Privacy Policy
-                        </span>
-                        <span className='duration-300 font-light text-gray-500 text-sm transition-colors hover:text-[#008900]'>
-                            Terms of Service
-                        </span>
-                    </div>
                 </div>
             </div>
         </footer>
