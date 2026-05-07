@@ -1,18 +1,18 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import Button from '../../../components/ui/Button'
+import RevealOnScroll from '../../../components/ui/RevealOnScroll'
 
 type FormData = {
     email: string
     message: string
     name: string
-    phone: string
 }
 
 const Form = () => {
     const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',
-        phone: '',
         message: ''
     })
 
@@ -21,58 +21,67 @@ const Form = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target
-        setFormData(prev => ({ ...prev, [name]: value }))
+
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }))
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.SubmitEvent) => {
         e.preventDefault()
 
         setIsSending(true)
         setIsSent(false)
 
+        await new Promise(resolve => setTimeout(resolve, 3000))
+
+        console.log('Form submitted:', formData)
+
+        setIsSending(false)
+        setIsSent(true)
+
+        setFormData({
+            name: '',
+            email: '',
+            message: ''
+        })
+
         setTimeout(() => {
-            console.log('Form submitted:', formData)
-
-            setIsSending(false)
-            setIsSent(true)
-
-            // optional: reset form
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                message: ''
-            })
-        }, 3000)
+            setIsSent(false)
+        }, 4000)
     }
 
     return (
-        <section className='bg-gray-50 py-12 sm:py-16'>
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                <div className='grid gap-12 lg:grid-cols-2'>
-                    <div>
-                        <img
-                            alt='Contact our energy experts'
-                            className='rounded-lg object-cover h-full w-full'
-                            src='https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-                        />
-                    </div>
+        <RevealOnScroll>
+            <section className='bg-white py-16 md:py-24' id='contact-form'>
+                <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+                    <div className='mx-auto max-w-2xl'>
+                        <div className='mb-8 text-center'>
+                            <h2 className='font-bold mb-2 text-gray-900 text-2xl sm:text-3xl'>
+                                Get Your Instant Free Quote
+                            </h2>
 
-                    <div>
-                        <h2 className='font-bold mb-2 text-gray-900 text-2xl sm:text-3xl'>
-                            Get Your Instant Free Quote
-                        </h2>
-                        <p className='font-light mb-6 text-gray-600'>
-                            Fill out the form below and our experts will get back to you within 24 hours.
-                        </p>
+                            <p className='font-light text-gray-500'>
+                                Fill out the form below and our experts will get back to you within 24 hours.
+                            </p>
+                        </div>
 
-                        <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
+                        <motion.form
+                            animate={{ opacity: 1, y: 0 }}
+                            className='flex flex-col gap-5'
+                            initial={{ opacity: 0, y: 20 }}
+                            transition={{ duration: 0.5 }}
+                            onSubmit={handleSubmit}
+                        >
                             <div>
                                 <label className='block font-medium mb-1 text-gray-700 text-sm'>
-                                    Full Name *
+                                    Full Name
                                 </label>
+
                                 <input
-                                    className='bg-white border border-gray-300 focus:border-emerald-500 focus:outline-none px-4 py-2 rounded-md text-gray-900 text-sm transition-colors w-full'
+                                    className='bg-gray-50 border border-gray-200 focus:border-[#165B13] focus:outline-none px-4 py-3 rounded-none text-gray-900 text-sm transition-colors w-full'
+                                    disabled={isSending}
                                     name='name'
                                     placeholder='John Doe'
                                     required
@@ -84,10 +93,12 @@ const Form = () => {
 
                             <div>
                                 <label className='block font-medium mb-1 text-gray-700 text-sm'>
-                                    Email Address *
+                                    Email Address
                                 </label>
+
                                 <input
-                                    className='bg-white border border-gray-300 focus:border-emerald-500 focus:outline-none px-4 py-2 rounded-md text-gray-900 text-sm transition-colors w-full'
+                                    className='bg-gray-50 border border-gray-200 focus:border-[#165B13] focus:outline-none px-4 py-3 rounded-none text-gray-900 text-sm transition-colors w-full'
+                                    disabled={isSending}
                                     name='email'
                                     placeholder='johndoe@gmail.com'
                                     required
@@ -99,24 +110,12 @@ const Form = () => {
 
                             <div>
                                 <label className='block font-medium mb-1 text-gray-700 text-sm'>
-                                    Phone Number
+                                    Message
                                 </label>
-                                <input
-                                    className='bg-white border border-gray-300 focus:border-emerald-500 focus:outline-none px-4 py-2 rounded-md text-gray-900 text-sm transition-colors w-full'
-                                    name='phone'
-                                    placeholder='+234 702 573-9846'
-                                    type='tel'
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                />
-                            </div>
 
-                            <div>
-                                <label className='block font-medium mb-1 text-gray-700 text-sm'>
-                                    Message *
-                                </label>
                                 <textarea
-                                    className='bg-white border border-gray-300 focus:border-emerald-500 focus:outline-none h-32 px-4 py-2 rounded-md resize-none text-gray-900 text-sm transition-colors w-full'
+                                    className='bg-gray-50 border border-gray-200 focus:border-[#165B13] focus:outline-none h-32 px-4 py-3 rounded-none resize-none text-gray-900 text-sm transition-colors w-full'
+                                    disabled={isSending}
                                     name='message'
                                     placeholder='Tell us about your energy needs...'
                                     required
@@ -125,25 +124,25 @@ const Form = () => {
                                 />
                             </div>
 
+                            {isSent && (
+                                <div className='border border-green-200 bg-green-50 px-4 py-3 text-green-700 text-sm'>
+                                    Message sent successfully. Our team will contact you shortly.
+                                </div>
+                            )}
+
                             <Button
-                                className='w-full sm:w-auto'
+                                className='w-full'
                                 disabled={isSending}
                                 type='submit'
                                 variant='primary'
                             >
-                                {isSending ? 'Sending...' : 'Send Message'}
+                                {isSending ? 'Sending Message...' : 'Send Message'}
                             </Button>
-
-                            {isSent && (
-                                <p className='text-emerald-600 text-sm'>
-                                    Message sent successfully.
-                                </p>
-                            )}
-                        </form>
+                        </motion.form>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </RevealOnScroll>
     )
 }
 
