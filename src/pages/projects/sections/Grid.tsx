@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import Filter from './Filter'
+import { motion, AnimatePresence } from 'framer-motion'
+import RevealOnScroll from '../../../components/ui/RevealOnScroll'
 
 type Project = {
     category: string
@@ -9,103 +10,111 @@ type Project = {
     title: string
 }
 
-type ProjectCardProps = {
-    project: Project
-}
-
-const ProjectCard = ({ project }: ProjectCardProps) => {
-    return (
-        <div className='bg-white border border-gray-100 hover:shadow-lg overflow-hidden rounded-lg transition-shadow group'>
-            <div className='relative overflow-hidden h-64'>
-                <img
-                    alt={project.title}
-                    className='duration-500 group-hover:scale-105 h-full object-cover transition-transform w-full'
-                    src={project.imageUrl}
-                />
-                <div className='absolute bg-[#008900] bottom-3 left-3 px-2 py-1 rounded text-white text-xs'>
-                    {project.category}
-                </div>
-            </div>
-            <div className='p-6'>
-                <h3 className='font-semibold mb-1 text-gray-800 text-lg'>{project.title}</h3>
-                <p className='font-light mb-2 text-gray-500 text-sm flex items-center gap-1'>{project.location}</p>
-                <p className='font-light text-gray-600 text-sm'>{project.description}</p>
-            </div>
-        </div>
-    )
-}
-
 const Grid = () => {
     const [activeFilter, setActiveFilter] = useState('All')
 
     const projects: Project[] = [
         {
-            title: 'Green Valley Solar Farm',
+            title: 'Gwoza Solar',
             category: 'Solar',
-            location: 'California, USA',
-            description: '100MW solar installation powering over 15,000 homes.',
-            imageUrl: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+            location: 'Borno, Nigeria',
+            description: 'Stretching across acres of sun-soaked land, the Borno Solar Power Project is an awe-inspiring sight. Rows of sleek solar panels, meticulously positioned, harness the abundant solar energy that graces Gwoza.',
+            imageUrl: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&auto=format',
         },
         {
-            title: 'Highland Wind Project',
-            category: 'Hybrid',
-            location: 'Texas, USA',
-            description: 'Hybrid wind-solar system with 85% efficiency rating.',
-            imageUrl: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-        },
-        {
-            title: 'Iceland Geothermal Plant',
-            category: 'Geothermal',
-            location: 'Reykjavik, Iceland',
-            description: 'Sustainable geothermal heating for residential complexes.',
-            imageUrl: 'src/assets/images/geothermal 2.jpg'
-        },
-        {
-            title: 'Desert Sun Initiative',
+            title: 'Edemba Solar',
             category: 'Solar',
-            location: 'Nevada, USA',
-            description: 'Large-scale solar array with battery storage system.',
-            imageUrl: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-        },
+            location: 'Ebonyi, Nigeria',
+            description: 'The Ebonyi Solar Homes project in Edemba, led by Kratton Oaks, delivers clean solar energy while promoting environmental sustainability, job creation, and economic growth, positioning the community as a leader in renewable energy development.',
+            imageUrl: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=800&auto=format'
+        },        
         {
-            title: 'Coastal Hybrid Project',
-            category: 'Hybrid',
-            location: 'Oregon, USA',
-            description: 'Combined wind, solar, and tidal energy solutions.',
-            imageUrl: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-        },
-        {
-            title: 'Urban Geothermal Network',
-            category: 'Geothermal',
-            location: 'New York, USA',
-            description: 'Downtown district heating using geothermal technology.',
-            imageUrl: 'src/assets/images/geothermal 3.jpg'
+            title: 'Nkabo Solar Farm',
+            category: 'Solar',
+            location: 'Zamfara, Nigeria',
+            description: 'The Nkabom Solar Farm in Zamfara State, led by Kratton Oaks, provides clean solar energy while supporting environmental sustainability, job creation, and economic growth, helping position the community as a model for renewable energy development and innovation.',
+            imageUrl: 'https://plus.unsplash.com/premium_photo-1679917152396-4b18accacb9d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c29sYXJ8ZW58MHx8MHx8fDA%3D'
         }
     ]
 
+    const filters = ['All', 'Solar', 'Hybrid', 'Geothermal']
     const filteredProjects = activeFilter === 'All'
         ? projects
         : projects.filter(p => p.category === activeFilter)
 
     return (
-        <section className='bg-gray-50 py-12 sm:py-16 md:py-20'>
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                <Filter activeFilter={activeFilter} onFilterChange={setActiveFilter} />
-
-                {filteredProjects.length === 0 ? (
-                    <div className='py-20 text-center'>
-                        <p className='font-light text-gray-500 text-lg'>No projects found</p>
-                    </div>
-                ) : (
-                    <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
-                        {filteredProjects.map((project, index) => (
-                            <ProjectCard key={index} project={project} />
+        <RevealOnScroll>
+            <section className='bg-gray-50 py-16 md:py-24'>
+                <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+                    {/* Filter Buttons */}
+                    <div className='flex flex-wrap gap-3 justify-center mb-12'>
+                        {filters.map((filter) => (
+                            <button
+                                key={filter}
+                                className={[
+                                    'duration-300 px-5 py-2 text-sm tracking-wide transition-colors',
+                                    activeFilter === filter
+                                        ? 'bg-[#165B13] text-white'
+                                        : 'bg-white hover:bg-[#008900] hover:text-white text-gray-600'
+                                ].join(' ')}
+                                onClick={() => setActiveFilter(filter)}
+                            >
+                                {filter}
+                            </button>
                         ))}
                     </div>
-                )}
-            </div>
-        </section>
+
+                    {/* Projects Grid with Animation */}
+                    <AnimatePresence mode='wait'>
+                        <motion.div
+                            key={activeFilter}
+                            animate={{ opacity: 1, y: 0 }}
+                            className='grid gap-8 md:grid-cols-2 lg:grid-cols-3'
+                            exit={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            transition={{ duration: 0.4 }}
+                        >
+                            {filteredProjects.map((project, index) => (
+                                <motion.div
+                                    key={project.title}
+                                    className='bg-white hover:shadow-lg overflow-hidden transition-all hover:border-[#165B13] border border-transparent'
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.05 }}
+                                    whileHover={{ y: -5 }}
+                                >
+                                    <div className='overflow-hidden h-56'>
+                                        <img
+                                            alt={project.title}
+                                            className='grayscale hover:grayscale-0 h-full object-cover transition-all duration-1000 w-full'
+                                            loading='lazy'
+                                            src={project.imageUrl}
+                                        />
+                                    </div>
+                                    <div className='p-6'>
+                                        <div className='flex gap-2 items-center justify-between mb-2'>
+                                            <h3 className='font-semibold text-gray-800 text-lg'>{project.title}</h3>
+                                            <span className='bg-[#165B13]/10 font-light px-2 py-1 text-[#165B13] text-xs'>
+                                                {project.category}
+                                            </span>
+                                        </div>
+                                        <p className='font-light mb-2 text-gray-500 text-sm flex items-center gap-1'>{project.location}</p>
+                                        <p className='font-light text-gray-600 text-sm'>{project.description}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+
+                    {filteredProjects.length === 0 && (
+                        <div className='py-20 text-center'>
+                            <p className='font-light text-gray-500 text-lg'>No projects currently</p>
+                        </div>
+                    )}
+                </div>
+            </section>
+        </RevealOnScroll>
     )
 }
 
-export default  Grid
+export default Grid

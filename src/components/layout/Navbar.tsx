@@ -1,7 +1,10 @@
-import { HiMenu, HiX, HiSun, HiSparkles } from 'react-icons/hi'
-import { useNavigate,NavLink } from 'react-router-dom'
+import { HiMenu, HiX } from 'react-icons/hi'
+import { motion, AnimatePresence } from 'framer-motion'
+import { NavLink, useNavigate } from 'react-router-dom'
+import type { NavLinkRenderProps } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import krattonoaks_logo from '../../assets/images/KrattonOaks logo.png'
+import Button from '../ui/Button'
+import krattonoaks_logo from '../../assets/images/kratton-oaks-logo.png'
 
 type NavItemProps = {
     children: string
@@ -10,18 +13,31 @@ type NavItemProps = {
 }
 
 const NavItem = ({ children, onClick, to }: NavItemProps) => {
-    const activeClasses = 'text-[#165B13]'
-    const baseClasses = 'duration-300 font-medium text-gray-700 transition-colors hover:text-[#008900]'
-    const inactiveClasses = ''
-
     return (
-        <li>
+        <li className='relative'>
             <NavLink
-                className={({ isActive }) => [baseClasses, isActive ? activeClasses : inactiveClasses].join(' ')}
+                className={({ isActive }: NavLinkRenderProps) => `
+                    duration-300 font-light relative text-gray-700 text-sm tracking-wide transition-colors hover:text-[#008900]
+                    ${isActive ? 'text-[#165B13]' : ''}
+                `}
                 onClick={onClick}
                 to={to}
             >
-                {children}
+                {({ isActive }) => (
+                    <>
+                        {children}
+
+                        {isActive && (
+                            <motion.span
+                                animate={{ width: '100%' }}
+                                className='absolute -bottom-1 bg-[#165B13] h-[1px] left-0'
+                                initial={{ width: '0%' }}
+                                layoutId={`activeNav-${to}`}
+                                transition={{ duration: 0.3 }}
+                            />
+                        )}
+                    </>
+                )}
             </NavLink>
         </li>
     )
@@ -29,80 +45,103 @@ const NavItem = ({ children, onClick, to }: NavItemProps) => {
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         document.body.style.overflow = isOpen ? 'hidden' : 'auto'
-
         return () => {
             document.body.style.overflow = 'auto'
         }
     }, [isOpen])
 
-    const navigate = useNavigate()
+    const navItems = [
+        { path: '/', label: 'Home' },
+        { path: '/about', label: 'About' },
+        { path: '/services', label: 'Services' },
+        { path: '/projects', label: 'Projects' },
+        { path: '/contact', label: 'Contact' },
+    ]
 
     return (
-        <nav className='bg-white/90 backdrop-blur-md border-b border-emerald-100/50 fixed left-0 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 top-0 w-full z-50'>
-            <div className='flex items-center justify-between mx-auto max-w-7xl'>
-                {/* Logo / Branding */}
-                <div className='flex items-center gap-2 sm:gap-3'>
-                    <div>
-                        <img className='w-28' src={krattonoaks_logo} />
+        <>
+            <nav className='bg-white/90 backdrop-blur-sm border-b border-gray-100 fixed left-0 px-6 lg:px-8 py-1 md:py-5 top-0 w-full z-50'>
+                <div className='flex items-center justify-between mx-auto max-w-7xl'>
+
+                    {/* Logo / Branding (NOW CLICKABLE) */}
+                    <img
+                        alt='Kratton Oaks Logo'
+                        className='cursor-pointer w-24'
+                        src={krattonoaks_logo}
+                        onClick={() => navigate('/')}
+                    />
+
+                    {/* Desktop Navigation */}
+                    <ul className='hidden gap-8 md:flex'>
+                        {navItems.map((item) => (
+                            <NavItem key={item.path} to={item.path}>
+                                {item.label}
+                            </NavItem>
+                        ))}
+                    </ul>
+
+                    {/* Desktop CTA Button */}
+                    <div className='hidden md:block'>
+                        <Button
+                            onClick={() => navigate('/contact#contact-form')}
+                            variant='greenOutline'
+                        >
+                            Free Quote
+                        </Button>
                     </div>
-                </div>
 
-                {/* Desktop Navigation */}
-                <ul className='hidden gap-5 lg:gap-8 md:flex'>
-                    <NavItem to='/'>Home</NavItem>
-                    <NavItem to='/about'>About</NavItem>
-                    <NavItem to='/services'>Services</NavItem>
-                    <NavItem to='/projects'>Projects</NavItem>                    
-                    <NavItem to='/contact'>Contact</NavItem>
-                </ul>
-
-                {/* Desktop CTA Button */}
-                <div className='hidden md:block'>
-                    <button onClick={() => navigate('/contact')} className='bg-[#165B13] hover:bg-[#008900] px-5 py-2 rounded-md text-sm text-white transition-all shadow-sm hover:shadow-md'>
-                        Get Free Quote
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className='md:hidden p-1 text-gray-700 hover:text-[#008900]'
+                        onClick={() => setIsOpen(prev => !prev)}
+                    >
+                        {isOpen ? <HiX size={26} /> : <HiMenu size={26} />}
                     </button>
                 </div>
+            </nav>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    className='md:hidden p-1 text-emerald-800 hover:text-emerald-600'
-                    onClick={() => setIsOpen(prev => !prev)}
-                >
-                    {isOpen ? <HiX size={26} /> : <HiMenu size={26} />}
-                </button>
-            </div>
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        animate={{ opacity: 1 }}
+                        className='bg-white fixed inset-0 md:hidden overflow-y-auto pt-24 px-6 z-40'
+                        exit={{ opacity: 0 }}
+                        initial={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <ul className='flex flex-col gap-6'>
+                            {navItems.map((item) => (
+                                <NavItem
+                                    key={item.path}
+                                    onClick={() => setIsOpen(false)}
+                                    to={item.path}
+                                >
+                                    {item.label}
+                                </NavItem>
+                            ))}
 
-            {/* Mobile Menu Overlay */}
-            <div
-                className={[
-                    'bg-white/98 backdrop-blur-sm duration-500 h-0 left-0 md:hidden opacity-0 overflow-hidden pointer-events-none transition-all',
-                    isOpen && 'h-screen opacity-100 pointer-events-auto'
-                ].join(' ')}
-            >
-                <ul className='flex flex-col gap-5 px-5 pt-8'>
-                    <NavItem onClick={() => setIsOpen(false)} to='/'>Home</NavItem>
-                    <NavItem onClick={() => setIsOpen(false)} to='/about'>About</NavItem>
-                    <NavItem onClick={() => setIsOpen(false)} to='/services'>Services</NavItem>
-                    <NavItem onClick={() => setIsOpen(false)} to='/projects'>Projects</NavItem>
-                    <NavItem onClick={() => setIsOpen(false)} to='/contact'>Contact</NavItem>
-
-                    <div className='border-t border-emerald-100 pt-6'>
-                        <button onClick={() => navigate('/contact')} className='bg-[#165B13] hover:bg-emerald-800 px-6 py-2.5 rounded-md text-center text-sm text-white transition-colors w-full'>
-                            Get Free Quote
-                        </button>
-                    </div>
-
-                    <div className='flex gap-3 items-center justify-center pt-4 text-[#008900]'>
-                        <HiSun className='h-4 w-4' />
-                        <HiSparkles className='h-4 w-4' />
-                        <span className='text-gray-500 text-xs'>Clean Energy</span>
-                    </div>
-                </ul>
-            </div>
-        </nav>
+                            <li className='pt-4'>
+                                <Button
+                                    className='w-full'
+                                    onClick={() => {
+                                        navigate('/contact#contact-form')
+                                        setIsOpen(false)
+                                    }}
+                                    variant='primary'
+                                >
+                                    Get Free Quote
+                                </Button>
+                            </li>
+                        </ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     )
 }
 
