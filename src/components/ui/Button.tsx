@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline'
+type ButtonVariant = 'primary' | 'secondary' | 'greenOutline' | 'whiteOutline'
 
 type ButtonProps = {
     children: ReactNode
@@ -12,22 +13,25 @@ type ButtonProps = {
 }
 
 const Button = ({ children, className = '', onClick, type = 'button', variant = 'primary' }: ButtonProps) => {
-    const baseClasses = 'duration-1000 px-6 py-2.5 rounded-md text-center text-sm transition-colors'
+    const baseClasses = 'duration-1000 px-6 py-3 rounded-none text-center text-sm tracking-wide transition-colors'
 
     const variantClasses = {
         primary: 'bg-[#165B13] hover:bg-[#008900] text-white',
-        secondary: 'bg-gray-800 hover:bg-gray-700 text-white',
-        outline: 'border border-emerald-700 hover:bg-emerald-700 text-emerald-700 hover:text-white'
+        secondary: 'bg-gray-100 hover:bg-[#008900] hover:text-white text-gray-800',
+        greenOutline: 'border border-[#165B13] hover:bg-[#008900] text-[#165B13] hover:border-[#008900] hover:text-white',
+        whiteOutline: 'border border-white hover:bg-[#008900] hover:border-[#008900] text-white'
     }
 
     return (
-        <button
+        <motion.button
             className={`${baseClasses} ${variantClasses[variant]} ${className}`}
             onClick={onClick}
             type={type}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
         >
             {children}
-        </button>
+        </motion.button>
     )
 }
 
