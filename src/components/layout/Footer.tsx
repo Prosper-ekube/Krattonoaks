@@ -1,5 +1,6 @@
 import { HiMail, HiPhone } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
+import Button from '../ui/Button'
 
 type FooterLinkProps = {
     children: string
@@ -9,7 +10,7 @@ type FooterLinkProps = {
 const FooterLink = ({ children }: FooterLinkProps) => {
     return (
         <li>
-            <span className='font-light text-gray-400 text-sm'>
+            <span className='duration-300 font-light text-gray-400 text-sm transition-colors hover:text-[#008900]'>
                 {children}
             </span>
         </li>
@@ -87,10 +88,8 @@ const Footer = () => {
                                         info@krattonoaks.com
                                     </a>
                                 </div>
-                            </div>
-                            <button onClick={() => navigate('/contact')} className='bg-[#165B13] duration-1000 hover:bg-[#008900] mt-2 px-6 py-2.5 rounded-md text-center text-sm text-white transition-colors'>
-                                Contact Our Experts
-                            </button>
+                            </div>                            
+                            <Button onClick={() => navigate('/contact#contact-form')} variant='primary'>Contact Our Experts</Button>
                         </div>
                     </div>
                 </div>
