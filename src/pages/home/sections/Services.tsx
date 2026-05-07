@@ -1,4 +1,5 @@
-import solar_engineer from '../../../assets/images/solar engineer.png'
+import { motion } from 'framer-motion'
+import RevealOnScroll from "../../../components/ui/RevealOnScroll"
 
 type Service = {
     description: string
@@ -10,43 +11,55 @@ type ServicesSectionProps = {
 }
 
 const Services = ({ services }: ServicesSectionProps) => {
-    return (
-        <section className='bg-gray-50 py-12 sm:py-16 md:py-20'>
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                {/* Section Header */}
-                <div className='mb-8 sm:mb-12 text-center'>
-                    <p className='font-light mb-2 text-[#008900] text-sm tracking-wide uppercase'>
-                        what we offer
-                    </p>
-                    <h2 className='font-bold mb-3 text-gray-900 text-2xl sm:text-3xl md:text-4xl'>
-                        Our Green Power Services
-                    </h2>
-                    <p className='font-light mx-auto max-w-2xl text-gray-600 text-base'>
-                        Embrace the limitless potential of green power with our comprehensive range of energy services.
-                    </p>
-                </div>
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    }
 
-                {/* Services Grid */}
-                <div className='grid gap-8 md:grid-cols-2'>
-                    {services.map((service, index) => (
-                        <div key={index} className='bg-white hover:shadow-lg overflow-hidden rounded-lg shadow-sm transition-shadow'>
-                            <img
-                                alt={service.title}
-                                className='h-56 object-cover w-full'
-                                src={index === 0
-                                    ? 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80'
-                                    : solar_engineer
-                                }
-                            />
-                            <div className='p-6'>
-                                <h3 className='font-semibold mb-2 text-gray-800 text-xl'>{service.title}</h3>
-                                <p className='font-light text-gray-600 text-base'>{service.description}</p>
-                            </div>
-                        </div>
-                    ))}
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 }}
+    }
+
+    return (
+        <RevealOnScroll>
+            <section className='bg-gray-50 py-16 md:py-24'>
+                <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+                    <div className='mb-12 text-center'>
+                        <p className='font-light mb-3 text-[#165B13] text-sm tracking-wide uppercase'>what we offer</p>
+                        <h2 className='font-bold mb-3 text-gray-900 text-3xl md:text-4xl'>Our Green Power Services</h2>
+                        <p className='font-light mx-auto max-w-2xl text-gray-500'>
+                            Embrace the limitless potential of green power with our comprehensive range of energy services.
+                        </p>
+                    </div>
+
+                    <motion.div
+                        className='grid gap-8 md:grid-cols-2'
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={containerVariants}
+                    >
+                        {services.map((service, index) => (
+                            <motion.div
+                                key={index}
+                                className='bg-white border border-gray-100 hover:shadow-md hover:border-[#165B13] p-8 transition-all'
+                                variants={itemVariants}
+                                whileHover={{ y: -5 }}
+                            >
+                                <h3 className='font-semibold mb-3 text-gray-800 text-xl'>{service.title}</h3>
+                                <p className='font-light text-gray-500 leading-relaxed'>{service.description}</p>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </RevealOnScroll>
     )
 }
 
