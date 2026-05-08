@@ -74,7 +74,7 @@ const Grid = () => {
                         exit="hidden"
                         variants={containerVariants}
                     >
-                        {filteredProjects.map((project, index) => (
+                        {filteredProjects.map((project) => (
                             <motion.div
                                 key={project.title}
                                 className='bg-white hover:shadow-lg overflow-hidden transition-all hover:border-[#165B13] border border-transparent cursor-pointer'
