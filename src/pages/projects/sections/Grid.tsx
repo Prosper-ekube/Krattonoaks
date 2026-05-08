@@ -33,7 +33,112 @@ const Grid = () => {
             category: 'Solar',
             location: 'Zamfara, Nigeria',
             description: 'The Nkabom Solar Farm in Zamfara State, led by Kratton Oaks, provides clean solar energy while supporting environmental sustainability, job creation, and economic growth, helping position the community as a model for renewable energy development and innovation.',
-            imageUrl: 'https://plus.unsplash.com/premium_photo-1679917152396-4b18accacb9d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c29sYXJ8ZW58MHx8MHx8fDA%3D'
+            imageUrl: 'https://img.magnific.com/free-photo/solar-panels-roof-solar-cell_335224-1324.jpg?uid=R137436713&ga=GA1.1.561032470.1777918282&semt=ais_hybrid&w=740&q=80'
+        },
+        {
+            title: 'Kaduna Smart Grid Initiative',
+            category: 'Hybrid',
+            location: 'Kaduna, Nigeria',
+            imageUrl: 'https://img.magnific.com/free-photo/sun-setting-silhouette-electricity-pylons_1127-2977.jpg',
+            description: 'Blending solar and backup energy technologies, the Kaduna Smart Grid Initiative delivers reliable and sustainable electricity solutions for growing residential and commercial communities.'
+        },
+        {
+            title: 'Nsukka Geothermal Station',
+            category: 'Geothermal',
+            location: 'Enugu, Nigeria',
+            imageUrl: 'https://cdn.pixabay.com/photo/2012/11/28/09/18/power-plant-67538_1280.jpg',
+            description: 'Harnessing underground thermal resources, the Nsukka Geothermal Station provides stable renewable energy while promoting environmentally responsible power generation.'
+        },
+        {
+            title: 'Lekki Solar Estate',
+            category: 'Solar',
+            location: 'Lagos, Nigeria',
+            imageUrl: 'https://cdn.pixabay.com/photo/2016/06/23/21/17/solar-1476224_960_720.jpg',
+            description: 'Spanning modern residential districts, the Lekki Solar Estate project utilizes high-efficiency solar panels to deliver clean and dependable electricity to homes and businesses.'
+        },
+        {
+            title: 'Jos Renewable Energy Hub',
+            category: 'Hybrid',
+            location: 'Plateau, Nigeria',
+            imageUrl: 'https://cdn.pixabay.com/photo/2022/01/10/15/29/wind-mills-6928590_1280.jpg',
+            description: 'The Jos Renewable Energy Hub combines multiple renewable technologies to ensure uninterrupted energy supply while reducing dependence on fossil fuels.'
+        },
+        {
+            title: 'Abeokuta Green Energy Project',
+            category: 'Hybrid',
+            location: 'Ogun, Nigeria',
+            imageUrl: 'https://cdn.pixabay.com/photo/2021/12/26/14/45/sunset-6895334_1280.jpg',
+            description: 'Positioned across expansive open fields, the Abeokuta Green Energy Project captures abundant sunlight to provide efficient and eco-friendly energy solutions.'
+        },
+        {
+            title: 'Makurdi Thermal Energy Facility',
+            category: 'Geothermal',
+            location: 'Benue, Nigeria',
+            imageUrl: 'https://img.magnific.com/free-photo/green-grass-field-near-power-plant-sunset_395237-52.jpg?uid=R137436713&ga=GA1.1.561032470.1777918282&semt=ais_hybrid&w=740&q=80',
+            description: 'Designed to tap into natural underground heat systems, the Makurdi Thermal Energy Facility delivers sustainable geothermal energy for industrial and residential use.'
+        },
+        {
+            title: 'Asaba Hybrid Power Network',
+            category: 'Hybrid',
+            location: 'Delta, Nigeria',
+            imageUrl: 'https://img.magnific.com/free-photo/sunset-sky-reflects-solar-panel-sustainable-power-generation-generative-ai_188544-36908.jpg?uid=R137436713&ga=GA1.1.561032470.1777918282&semt=ais_hybrid&w=740&q=80',
+            description: 'Integrating solar infrastructure with advanced storage systems, the Asaba Hybrid Power Network ensures reliable electricity distribution across key communities.'
+        },
+        {
+            title: 'Uyo Solar Expansion Project',
+            category: 'Solar',
+            location: 'Akwa Ibom, Nigeria',
+            imageUrl: 'https://cdn.pixabay.com/photo/2017/03/13/07/34/photovoltaic-2138992_1280.jpg',
+            description: 'Featuring rows of advanced photovoltaic panels, the Uyo Solar Expansion Project supports cleaner energy consumption and long-term environmental sustainability.'
+        },
+        {
+            title: 'Minna Geothermal Plant',
+            category: 'Geothermal',
+            location: 'Niger State, Nigeria',
+            imageUrl: 'https://img.magnific.com/premium-photo/geothermal-power-station-iceland_70898-6996.jpg?w=360',
+            description: 'The Minna Geothermal Plant transforms naturally occurring underground heat into dependable renewable energy for nearby industries and households.'
+        },
+        {
+            title: 'Ibadan Clean Energy Initiative',
+            category: 'Hybrid',
+            location: 'Oyo, Nigeria',
+            imageUrl: 'https://img.magnific.com/premium-photo/geothermal-pumping-station-off-road_665346-81511.jpg?uid=R137436713&ga=GA1.1.561032470.1777918282&semt=ais_hybrid&w=740&q=80',
+            description: 'Combining renewable energy sources for enhanced efficiency, the Ibadan Clean Energy Initiative powers urban development with reliable sustainable solutions.'
+        },
+        {
+            title: 'Yola Solar Energy Farm',
+            category: 'Solar',
+            location: 'Adamawa, Nigeria',
+            imageUrl: 'https://img.magnific.com/free-photo/beautiful-alternative-energy-plant-with-solar-panels_23-2149192692.jpg?uid=R137436713&ga=GA1.1.561032470.1777918282&semt=ais_hybrid&w=740&q=80',
+            description: 'Stretching across wide landscapes, the Yola Solar Energy Farm captures the region\'s intense sunlight to generate affordable and environmentally friendly power.'
+        },
+        {
+            title: 'Lokoja Sustainable Power Project',
+            category: 'Hybrid',
+            location: 'Kogi, Nigeria',
+            imageUrl: 'https://plus.unsplash.com/premium_photo-1679917152396-4b18accacb9d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c29sYXJ8ZW58MHx8MHx8fDA%3D',
+            description: 'The Lokoja Sustainable Power Project integrates renewable systems and smart energy management technologies to improve energy accessibility and efficiency.'
+        },
+        {
+            title: 'Abakaliki Geothermal Development',
+            category: 'Geothermal',
+            location: 'Ebonyi, Nigeria',
+            imageUrl: 'https://img.magnific.com/premium-photo/landscape-with-nuclear-power-dukovany-czech-republic-europe-natural-ecological-background_604451-645.jpg',
+            description: 'Built around innovative geothermal technology, the Abakaliki Geothermal Development delivers clean energy while supporting regional economic growth.'
+        },
+        {
+            title: 'Ilorin Solar Infrastructure Project',
+            category: 'Solar',
+            location: 'Kwara, Nigeria',
+            imageUrl: 'https://cdn.pixabay.com/photo/2023/08/14/16/00/solar-8190270_1280.jpg',
+            description: 'Strategically installed solar arrays across Ilorin provide consistent renewable energy while reducing environmental impact and operational costs.'
+        },
+        {
+            title: 'Owerri Hybrid Energy Complex',
+            category: 'Hybrid',
+            location: 'Imo, Nigeria',
+            imageUrl: 'https://cdn.pixabay.com/photo/2016/03/29/17/23/solarpark-1288842_1280.jpg',
+            description: 'The Owerri Hybrid Energy Complex combines modern renewable technologies to deliver stable, efficient, and environmentally conscious energy solutions.'
         }
     ]
 

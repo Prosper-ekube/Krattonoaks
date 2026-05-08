@@ -4,10 +4,15 @@ import Quote from './sections/Quote'
 import Welcome from './sections/Welcome'
 import Services from './sections/Services'
 import Stats from './sections/Stats'
+import WhyChoose from './sections/WhyChoose'
+import Process from './sections/Process'
+import Industries from './sections/Industries'
+import Testimonials from './sections/Testimonials'
+import FAQ from './sections/FAQ'
 import Footer from '../../components/layout/Footer'
 
 const Home = () => {
-    // Data directly from original website
+    // Data from original website
     const welcomeServices = [
         { number: '01', title: 'Renewable Energy' },
         { number: '02', title: 'Digital Optimization' },
@@ -40,7 +45,12 @@ const Home = () => {
                 <Quote />
                 <Welcome services={welcomeServices} />
                 <Services services={greenServices} />
+                <WhyChoose />
+                <Process />
+                <Industries />
                 <Stats stats={stats} />
+                <Testimonials />
+                <FAQ />
             </main>
             <Footer />
         </>        
