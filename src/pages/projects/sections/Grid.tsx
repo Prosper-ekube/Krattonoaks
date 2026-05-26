@@ -18,7 +18,7 @@ const Grid = () => {
         navigate(`/projects/${slug}`)
     }
 
-    const filters = ['All', 'Solar', 'Hybrid', 'Geothermal']
+    const filters = ['All', 'Solar', 'Hybrid', 'Geothermal', 'Oil and Gas']
     const filteredProjects = activeFilter === 'All'
         ? projects
         : projects.filter(p => p.category === activeFilter)
@@ -93,7 +93,7 @@ const Grid = () => {
                                 <div className='p-6'>
                                     <div className='flex gap-2 items-center justify-between mb-2'>
                                         <h3 className='font-semibold text-gray-800 text-lg'>{project.title}</h3>
-                                        <span className='bg-[#165B13]/10 font-light px-2 py-1 text-[#165B13] text-xs'>
+                                        <span className='bg-[#165B13]/10 font-light px-2 py-1 text-[#165B13] text-nowrap text-xs'>
                                             {project.category}
                                         </span>
                                     </div>

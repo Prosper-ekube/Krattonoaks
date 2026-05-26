@@ -20,10 +20,14 @@ const Home = () => {
         { number: '04', title: 'Emission Reduction' }
     ]
 
-    const greenServices = [
+    const greenServices = [        
         {
             title: 'Solar & Wind Energy',
             description: 'Harness the abundant power of the sun and the unyielding force of the wind to fuel your home or business.'
+        },
+        {
+            title: 'Oil & Gas Solutions',
+            description: 'Comprehensive upstream and downstream services including flare gas recovery, pipeline monitoring, and energy efficiency optimization for petroleum facilities.'
         },
         {
             title: 'Full Service Support',
@@ -34,7 +38,8 @@ const Home = () => {
     const stats = [
         { label: 'Solar Energy', percentage: 88 },
         { label: 'Hybrid Energy', percentage: 83 },
-        { label: 'Geothermal Energy', percentage: 74 }
+        { label: 'Geothermal Energy', percentage: 74 },
+        { label: 'Oil and Gas', percentage: 72 }
     ]
 
     return (

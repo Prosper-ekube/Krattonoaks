@@ -5,7 +5,8 @@ const EnergyTypes = () => {
     const capabilities = [
         { label: 'Solar Energy', percentage: 88, description: 'Harness the abundant power of the sun' },
         { label: 'Hybrid Energy', percentage: 83, description: 'Combine solar and wind for maximum efficiency' },
-        { label: 'Geothermal Energy', percentage: 74, description: 'Tap into the earth\'s natural heat' }
+        { label: 'Geothermal Energy', percentage: 74, description: 'Tap into the earth\'s natural heat' },
+        { label: 'Oil and Gas', percentage: 72, description: 'Tap into the earth\'s natural reserve of fossil fuels' }
     ]
 
     const containerVariants = {

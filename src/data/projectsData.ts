@@ -383,6 +383,101 @@ export const projectsData: Project[] = [
             role: 'Mine Operations Manager',
             quote: 'Kratton Oaks delivered a robust hybrid solution for the Pilbara. Their professionalism and technical capability are truly impressive.'
         }
+    },
+    // Oil and Gas Projects
+    {
+        slug: 'delta-flare-gas-recovery-project',
+        title: 'Delta Flare Gas Recovery Project',
+        category: 'Oil and Gas',
+        location: 'Delta, Nigeria',
+        completionDate: '2024',
+        imageUrl: 'https://plus.unsplash.com/premium_photo-1682144333631-eac578433ea1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b2lsJTIwYW5kJTIwZ2FzfGVufDB8fDB8fHww',
+        galleryImages: [
+            'https://plus.unsplash.com/premium_photo-1682144333631-eac578433ea1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8b2lsJTIwYW5kJTIwZ2FzfGVufDB8fDB8fHww',
+            'https://plus.unsplash.com/premium_photo-1664304298826-57235ff43624?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fG9pbCUyMGFuZCUyMGdhc3xlbnwwfHwwfHx8MA%3D%3D',
+            'https://images.unsplash.com/photo-1648555394313-494797ad48fc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG9pbCUyMGFuZCUyMGdhc3xlbnwwfHwwfHx8MA%3D%3D'
+        ],
+        description: 'Flare gas capture system that reduces harmful emissions while generating usable energy for facility operations and surrounding communities.',
+        fullDescription: 'Located in Nigeria\'s oil-rich Delta region, this pioneering project captures natural gas that was previously being flared and converts it into usable energy. The system reduces carbon emissions by 85% while powering facility operations and providing electricity to nearby communities.',
+        technicalSpecs: [
+            { label: 'Gas Captured', value: '15 million SCF/day' },
+            { label: 'Emissions Reduction', value: '85%' },
+            { label: 'Power Generated', value: '12 MW' },
+            { label: 'Pipelines Installed', value: '8.5 km' },
+            { label: 'Annual Gas Saved', value: '5.4 BCF' }
+        ],
+        stats: {
+            energyGenerated: '12 MW',
+            homesPowered: '10,000+',
+            co2Reduction: '250,000 tons/year'
+        },
+        testimonial: {
+            name: 'Chief Emmanuel Okafor',
+            role: 'Operations Director, Delta',
+            quote: 'Kratton Oaks transformed our environmental liability into an energy asset. The flare gas recovery system has exceeded all performance targets and community benefits.'
+        }
+    },
+    {
+        slug: 'port-harcourt-pipeline-monitoring-network',
+        title: 'Port Harcourt Pipeline Monitoring Network',
+        category: 'Oil and Gas',
+        location: 'Rivers, Nigeria',
+        completionDate: '2024',
+        imageUrl: 'https://media.istockphoto.com/id/1381376333/photo/oil-refinery-and-pipeline.webp?a=1&b=1&s=612x612&w=0&k=20&c=Q4KX-IoHcvCpeSKtCOw8BGWVfWoFD4gInt6FUnJjIeQ=',
+        galleryImages: [
+            'https://media.istockphoto.com/id/1381376333/photo/oil-refinery-and-pipeline.webp?a=1&b=1&s=612x612&w=0&k=20&c=Q4KX-IoHcvCpeSKtCOw8BGWVfWoFD4gInt6FUnJjIeQ=',
+            'https://images.unsplash.com/photo-1542274368-443d694d79aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fG9pbCUyMGFuZCUyMGdhc3xlbnwwfHwwfHx8MA%3D%3D'            
+        ],
+        description: 'IoT-enabled leak detection and flow optimization system for critical oil and gas pipeline infrastructure.',
+        fullDescription: 'This advanced monitoring network uses fiber optic sensors and AI-powered analytics to detect leaks in real-time, prevent spills, and optimize flow efficiency. The system has reduced pipeline incidents by 90% and saved millions in product loss and environmental remediation costs.',
+        technicalSpecs: [
+            { label: 'Pipeline Length', value: '120 km' },
+            { label: 'Sensors Installed', value: '2,400 units' },
+            { label: 'Leak Detection Time', value: '< 30 seconds' },
+            { label: 'Monitoring Stations', value: '8 locations' },
+            { label: 'Incident Reduction', value: '90%' }
+        ],
+        stats: {
+            energyGenerated: 'N/A',
+            homesPowered: 'N/A',
+            co2Reduction: '75,000 tons/year'
+        },
+        testimonial: {
+            name: 'Dr. Grace Amadi',
+            role: 'Environmental Compliance Officer',
+            quote: 'The pipeline monitoring system has revolutionized our leak detection capabilities. We now respond to issues before they become environmental disasters.'
+        }
+    },
+    {
+        slug: 'bonny-island-lng-efficiency-upgrade',
+        title: 'Bonny Island LNG Efficiency Upgrade',
+        category: 'Oil and Gas',
+        location: 'Rivers, Nigeria',
+        completionDate: '2025',
+        imageUrl: 'https://images.unsplash.com/photo-1633155617309-6201a8096e8a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fG9pbCUyMGFuZCUyMGdhc3xlbnwwfHwwfHx8MA%3D%3D',
+        galleryImages: [
+            'https://images.unsplash.com/photo-1633155617309-6201a8096e8a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fG9pbCUyMGFuZCUyMGdhc3xlbnwwfHwwfHx8MA%3D%3D',
+            'https://images.unsplash.com/photo-1722183704200-e96339975ba4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fG9pbCUyMGFuZCUyMGdhc3xlbnwwfHwwfHx8MA%3D%3D'            
+        ],
+        description: 'Comprehensive energy efficiency retrofit for LNG facility including waste heat recovery and compressor optimization.',
+        fullDescription: 'This major upgrade project improved the facility\'s energy efficiency by 35% through waste heat recovery systems, variable frequency drives, and compressor optimization. The project significantly reduced the facility\'s carbon footprint while increasing LNG production capacity.',
+        technicalSpecs: [
+            { label: 'Energy Savings', value: '35%' },
+            { label: 'Waste Heat Recovery', value: '45 MW' },
+            { label: 'Annual LNG Output', value: '+15%' },
+            { label: 'Compressors Upgraded', value: '12 units' },
+            { label: 'Project Duration', value: '18 months' }
+        ],
+        stats: {
+            energyGenerated: '45 MW recovered',
+            homesPowered: '30,000+',
+            co2Reduction: '180,000 tons/year'
+        },
+        testimonial: {
+            name: 'Engr. Bamidele Adeyemi',
+            role: 'Facility Manager, Bonny Island',
+            quote: 'The efficiency gains from this project have been remarkable. Kratton Oaks delivered on time and under budget.'
+        }
     }
 ]
 

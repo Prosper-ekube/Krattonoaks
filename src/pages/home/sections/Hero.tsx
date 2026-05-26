@@ -34,12 +34,12 @@ const Hero = () => {
             <div className='relative mx-auto max-w-7xl px-6 lg:px-8 z-10 flex items-center min-h-screen md:h-full pb-8 pt-24 md:py-0'>
                 <div className='mx-auto max-w-3xl text-center w-full'>
                     <h1 className='font-light mb-4 md:mb-6 text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight'>
-                        Bringing the Effective <span className='font-semibold text-[#165B13]'>Solar Energy Solutions</span>
+                        Bringing Effective <span className='font-semibold text-[#165B13]'>Energy Solutions</span>
                     </h1>
 
                     <p className='font-light mx-auto max-w-2xl text-gray-100 text-sm sm:text-base md:text-lg mb-6 md:mb-8'>
-                        Celebrate a sustainable future with our cutting-edge energy solutions.
-                        Harness the power of the sun and wind to create a greener world while saving on your energy bills.
+                        Celebrate a sustainable future with our cutting-edge energy solutions across solar, geothermal and oil & gas.
+                        Harness diverse power sources to create a greener world while saving on your energy bills and optimizing industrial operations.
                     </p>
 
                     <div className='flex flex-col min-[375px]:flex-row gap-3 md:gap-4 justify-center'>
