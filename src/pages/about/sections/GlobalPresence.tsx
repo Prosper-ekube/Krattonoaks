@@ -22,24 +22,28 @@ const GlobalPresence = () => {
                     <div className='order-last lg:order-first'>
                         <img
                             alt='World map showing global energy solutions coverage'
-                            className='object-cover h-64 md:h-80 shadow-lg w-full'
+                            className='object-cover h-64 md:h-96 shadow-lg w-full'
                             src={globe_2}
                         />
                     </div>
 
                     {/* Stats side */}
                     <div className='flex flex-col gap-6 sm:flex-row lg:flex-col'>
-                        <div className='bg-white flex-1 p-6 text-center shadow-sm'>
-                            <div className='font-bold mb-2 text-[#008900] text-3xl sm:text-4xl'>88%</div>
+                        <div className='bg-white flex-1 p-4 text-center shadow-sm'>
+                            <div className='font-bold mb-1 text-[#008900] text-3xl sm:text-4xl'>88%</div>
                             <p className='font-medium text-gray-800'>Solar Energy</p>
                         </div>
-                        <div className='bg-white flex-1 p-6 text-center shadow-sm'>
-                            <div className='font-bold mb-2 text-[#008900] text-3xl sm:text-4xl'>83%</div>
+                        <div className='bg-white flex-1 p-4 text-center shadow-sm'>
+                            <div className='font-bold mb-1 text-[#008900] text-3xl sm:text-4xl'>83%</div>
                             <p className='font-medium text-gray-800'>Hybrid Energy</p>
                         </div>
-                        <div className='bg-white flex-1 p-6 text-center shadow-sm'>
-                            <div className='font-bold mb-2 text-[#008900] text-3xl sm:text-4xl'>74%</div>
+                        <div className='bg-white flex-1 p-4 text-center shadow-sm'>
+                            <div className='font-bold mb-1 text-[#008900] text-3xl sm:text-4xl'>74%</div>
                             <p className='font-medium text-gray-800'>Geothermal Energy</p>
+                        </div>
+                        <div className='bg-white flex-1 p-4 text-center shadow-sm'>
+                            <div className='font-bold mb-1 text-[#008900] text-3xl sm:text-4xl'>72%</div>
+                            <p className='font-medium text-gray-800'>Oil and Gas</p>
                         </div>
                     </div>
                 </div>

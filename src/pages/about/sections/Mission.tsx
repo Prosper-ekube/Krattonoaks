@@ -18,15 +18,15 @@ const Mission = () => {
                                 our mission
                             </p>
                             <h2 className='font-bold mb-4 text-gray-900 text-2xl sm:text-3xl'>
-                                Be a part of the green revolution
+                                Powering a Sustainable Future
                             </h2>
                             <p className='font-light mb-4 text-gray-600 text-base leading-relaxed'>
-                                Save energy. Save cost. Preserve the environment and be a good corporate citizen.
+                                Save energy. Save cost. Preserve the environment while optimizing traditional energy operations.
                             </p>
                             <p className='font-light mb-6 text-gray-600 text-base leading-relaxed'>
-                                Our passion revolves around solving energy problems. We believe that
-                                sustainable energy should be accessible to everyone, regardless of location
-                                or circumstance.
+                                Our passion revolves around solving energy problems across renewable and traditional sectors.
+                                We believe that efficient, responsible energy solutions should be accessible to everyone,
+                                regardless of location or circumstance.
                             </p>
 
                             <div className='flex flex-col gap-4'>

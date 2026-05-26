@@ -49,6 +49,7 @@ const Footer = () => {
                             <FooterLink to='/digital-optimization'>Digital Optimization</FooterLink>
                             <FooterLink to='/parts-and-maintenance'>Parts & Maintenance</FooterLink>
                             <FooterLink to='/emission-reduction'>Emission Reduction</FooterLink>
+                            <FooterLink to='/emission-reduction'>Oil and Gas</FooterLink>
                         </ul>
                     </div>
 
@@ -59,6 +60,7 @@ const Footer = () => {
                             <FooterLink to='/solar-energy'>Solar Energy</FooterLink>
                             <FooterLink to='/hybrid-energy'>Hybrid Energy</FooterLink>
                             <FooterLink to='/geothermal-energy'>Geothermal Energy</FooterLink>
+                            <FooterLink to='/geothermal-energy'>Oil and Gas</FooterLink>
                         </ul>
                     </div>
 

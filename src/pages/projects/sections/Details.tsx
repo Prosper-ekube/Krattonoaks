@@ -42,6 +42,8 @@ const Details = ({ project, onBack }: ProjectDetailsProps) => {
                 return <HiChip className='h-5 text-[#165B13] w-5' />
             case 'Geothermal':
                 return <HiCloud className='h-5 text-[#165B13] w-5' />
+            case 'Oil and Gas':
+                return <HiCloud className='h-5 text-[#165B13] w-5' />
             default:
                 return <HiSun className='h-5 text-[#165B13] w-5' />
         }

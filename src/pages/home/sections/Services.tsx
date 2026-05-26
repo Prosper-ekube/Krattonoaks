@@ -32,14 +32,14 @@ const Services = ({ services }: ServicesSectionProps) => {
                 <div className='mx-auto max-w-7xl px-6 lg:px-8'>
                     <div className='mb-12 text-center'>
                         <p className='font-light mb-3 text-[#165B13] text-sm tracking-wide uppercase'>what we offer</p>
-                        <h2 className='font-bold mb-3 text-gray-900 text-3xl md:text-4xl'>Our Green Power Services</h2>
+                        <h2 className='font-bold mb-3 text-gray-900 text-3xl md:text-4xl'>Our Power & Energy Services</h2>
                         <p className='font-light mx-auto max-w-2xl text-gray-500'>
-                            Embrace the limitless potential of green power with our comprehensive range of energy services.
+                            Comprehensive renewable energy and oil & gas solutions for a sustainable future.
                         </p>
                     </div>
 
                     <motion.div
-                        className='grid gap-8 md:grid-cols-2'
+                        className='grid gap-8 md:grid-cols-3'
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.2 }}

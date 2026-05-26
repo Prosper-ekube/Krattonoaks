@@ -8,7 +8,7 @@ const CTA = () => {
                 <div className='mx-auto max-w-7xl px-6 lg:px-8'>
                     <div className='mx-auto max-w-2xl text-center'>
                         <h2 className='font-light mb-3 text-white text-2xl sm:text-3xl md:text-4xl'>
-                            Ready to Join the Green Revolution?
+                            Ready to Join the Energy Revolution?
                         </h2>
                         <p className='font-light mb-8 text-gray-200 text-base'>
                             Get your instant free quote today. We're just a call away.

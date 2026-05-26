@@ -40,7 +40,7 @@ const Stats = ({ stats }: StatsSectionProps) => {
                     </div>
 
                     <motion.div
-                        className='grid gap-6 md:grid-cols-3'
+                        className='grid gap-6 md:grid-cols-4'
                         variants={containerVariants}
                         viewport={{ once: true }}
                         whileInView="visible"
