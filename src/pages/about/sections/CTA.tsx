@@ -1,7 +1,9 @@
 import Button from '../../../components/ui/Button'
 import RevealOnScroll from '../../../components/ui/RevealOnScroll'
+import { useNavigate } from 'react-router-dom'
 
 const CTA = () => {
+    const navigate = useNavigate()
     return (
         <RevealOnScroll>
             <section className='bg-[#165B13] py-16 md:py-24'>
@@ -13,7 +15,7 @@ const CTA = () => {
                         <p className='font-light mb-8 text-gray-200 text-base'>
                             Get your instant free quote today. We're just a call away.
                         </p>
-                        <Button variant='whiteOutline'>
+                        <Button onClick={() => navigate('/contact#contact-form')} variant='whiteOutline'>
                             Contact Our Experts
                         </Button>
                     </div>
