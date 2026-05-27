@@ -73,15 +73,6 @@ const Footer = () => {
                             </p>
                             <div className='flex flex-col gap-2'>
                                 <div className='flex gap-3 items-center'>
-                                    <HiPhone className='h-5 text-[#165B13] w-5' />
-                                    <a
-                                        className='duration-300 font-light text-gray-400 text-sm transition-colors hover:text-[#008900]'
-                                        href='tel:+2347061174700'
-                                    >
-                                        +234 706-117-4700
-                                    </a>
-                                </div>
-                                <div className='flex gap-3 items-center'>
                                     <HiMail className='h-5 text-[#165B13] w-5' />
                                     <a
                                         className='duration-300 font-light text-gray-400 text-sm transition-colors hover:text-[#008900]'
@@ -89,6 +80,23 @@ const Footer = () => {
                                     >
                                         info@krattonoaks.com
                                     </a>
+                                </div>
+                                <div className='flex gap-3 items-center'>
+                                    <HiPhone className='h-5 text-[#165B13] w-5' />
+                                    <div className='flex gap-2 min-[1024px]:flex-col min-[1280px]:flex-row'>
+                                        <a
+                                            className='duration-300 font-light text-gray-400 text-sm transition-colors hover:text-[#008900]'
+                                            href='tel:+14704037837'
+                                        >
+                                            +1 470-403-7837
+                                        </a>
+                                        <a
+                                            className='duration-300 font-light text-gray-400 text-sm transition-colors hover:text-[#008900]'
+                                            href='tel:+2347061174700'
+                                        >
+                                            +234 706-117-4700
+                                        </a>
+                                    </div>
                                 </div>
                             </div>                            
                             <Button onClick={() => navigate('/contact#contact-form')} variant='primary'>Contact Our Experts</Button>

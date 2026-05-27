@@ -6,7 +6,7 @@ const Info = () => {
         {
             icon: HiPhone,
             title: 'Call Us',
-            description: '+234 706-117-4700',
+            description: '+1 470-403-7837 \n +234 706-117-4700',
             detail: 'Mon-Sat: 8AM - 6PM'
         },
         {
@@ -58,7 +58,7 @@ const Info = () => {
                                 <card.icon className='h-6 text-[#165B13] w-6' />
                             </div>
                             <h3 className='font-semibold mb-2 text-gray-800 text-lg'>{card.title}</h3>
-                            <p className='font-medium text-gray-900 mb-1'>{card.description}</p>
+                            <div className='font-medium text-gray-900 mb-1 whitespace-pre-line'>{card.description}</div>
                             <p className='font-light text-gray-500 text-sm'>{card.detail}</p>
                         </motion.div>
                     ))}
