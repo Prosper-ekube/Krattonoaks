@@ -154,7 +154,7 @@ const Details = ({ project, onBack }: ProjectDetailsProps) => {
                                 <div className='flex gap-1 items-center'>
                                     <HiCalendar className='h-4 text-[#165B13] w-4' />
                                     <span className='font-light text-gray-600 text-sm'>
-                                        Completed {project.completionDate}
+                                        Completed {project.projectedCompletionDate}
                                     </span>
                                 </div>
                             </div>
@@ -175,28 +175,28 @@ const Details = ({ project, onBack }: ProjectDetailsProps) => {
                                 <div className='text-center'>
                                     <HiChartBar className='h-6 mx-auto text-[#165B13] w-6' />
                                     <p className='font-bold mt-2 text-gray-800 text-lg'>
-                                        {project.stats.energyGenerated}
+                                        {project.stats.find((stat) => stat.label === 'Projected Annual Energy Output')?.value ?? 'N/A'}
                                     </p>
                                     <p className='font-light text-gray-500 text-xs uppercase tracking-wide'>
-                                        Energy Generated
+                                        Projected Annual Energy Output
                                     </p>
                                 </div>
                                 <div className='text-center'>
                                     <HiUsers className='h-6 mx-auto text-[#165B13] w-6' />
-                                    <p className='font-bold mt-2 text-gray-800 text-lg'>
-                                        {project.stats.homesPowered}
+                                    <p className='font-bold mt-2 text-gray-800 text-lg'>                                        
+                                        {project.stats.find((stat) => stat.label === 'Potential Homes Powered')?.value ?? 'N/A'}
                                     </p>
                                     <p className='font-light text-gray-500 text-xs uppercase tracking-wide'>
-                                        Homes Powered
+                                        Potential Homes Powered
                                     </p>
                                 </div>
                                 <div className='text-center'>
                                     <HiCloudDownload className='h-6 mx-auto text-[#165B13] w-6' />
-                                    <p className='font-bold mt-2 text-gray-800 text-lg'>
-                                        {project.stats.co2Reduction}
+                                    <p className='font-bold mt-2 text-gray-800 text-lg'>                                        
+                                        {project.stats.find((stat) => stat.label === 'Estimated Annual CO₂ Reduction')?.value ?? 'N/A'}
                                     </p>
                                     <p className='font-light text-gray-500 text-xs uppercase tracking-wide'>
-                                        CO₂ Reduction
+                                        Estimated Annual CO₂ Reduction
                                     </p>
                                 </div>
                             </div>
@@ -253,7 +253,7 @@ const Details = ({ project, onBack }: ProjectDetailsProps) => {
                                             Completion
                                         </p>
                                         <p className='font-medium text-gray-800 text-sm'>
-                                            {project.completionDate}
+                                            {project.projectedCompletionDate}
                                         </p>
                                     </div>
 
@@ -261,8 +261,17 @@ const Details = ({ project, onBack }: ProjectDetailsProps) => {
                                         <p className='font-light mb-1 text-gray-500 text-xs uppercase tracking-wide'>
                                             Status
                                         </p>
-                                        <p className='font-medium text-emerald-600 text-sm'>
-                                            Fully Operational
+                                        <p
+                                            className={`font-medium text-sm ${project.projectStatus === 'Commissioning'
+                                                    ? 'text-emerald-600'
+                                                    : project.projectStatus === 'Implementation'
+                                                        ? 'text-blue-600'
+                                                        : project.projectStatus === 'Development'
+                                                            ? 'text-amber-600'
+                                                            : 'text-gray-500'
+                                                }`}
+                                        >
+                                            {project.projectStatus}
                                         </p>
                                     </div>
                                 </div>

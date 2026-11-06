@@ -12,12 +12,12 @@ const Testimonials = () => {
     const testimonials: Testimonial[] = [
         {
             quote: 'Kratton Oaks transformed our facility\'s energy efficiency. Our electricity bills have dropped by over 40% since installation.',
-            author: 'Michael Okonkwo',
+            author: 'Oghenetega Samuel Akpofure',
             role: 'Facility Manager, Enugu'
         },
         {
             quote: 'The team was professional from consultation to installation. Their maintenance support has been exceptional and reliable.',
-            author: 'Amara Eze',
+            author: 'Mnena Grace Aondo',
             role: 'Operations Director, Lagos'
         },
         {
